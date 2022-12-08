@@ -47,17 +47,18 @@ public class Factory {
     }
     
     int TotalIncreasedPrice(String title, int increaseAmount){
+        int totalIncrease = 0;
         for (Material material : materials) {
             if (material != null && material.title == title) {
                 material.price += increaseAmount;
-                
+                totalIncrease += increaseAmount;
                 if (material.price < 5) {
                     material.price += 2;
-                    return increaseAmount + 2;
+                    totalIncrease += 2;
                 }
             }
         }
-        return increaseAmount;
+        return totalIncrease;
     }
     
     void AssignMaterial(String firstName, String lastName, Material material){
